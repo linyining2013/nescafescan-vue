@@ -1,0 +1,108 @@
+/* 公用底部切换tab */
+
+#footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  /* box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.1);*/
+  z-index: 10;
+  .tips {
+    width: 400px;
+    height: 158px;
+    background: url(../../assets/images/index/tipsbg.png) round;
+    position: absolute;
+    right: 24px;
+    bottom: 126px;
+    z-index: 20;
+    .close {
+      width: 21px;
+      height: 21px;
+      background: url(../../assets/images/index/ic_close.png) round;
+      position: absolute;
+      right: 20px;
+      top: 16px;
+    }
+    .p-box {
+      padding-top: 30px;
+      padding-left: 32px;
+      p {
+        font-size: 28px;
+        color: #fff;
+        line-height: 40px;
+      }
+    }
+  }
+  .btn-wrap {
+    padding: 20px 0;
+    text-align: center;
+    background: #fff;
+    border-top: 3px solid #f1f1f3;
+    .item-btn {
+      position: relative;
+      color: #666;
+      font-size: 26px;
+      text-align: center;
+      &:first-child{
+          border-right: 3px solid rgb(247, 247,247);
+      }
+      &.active {
+        color: #333;
+      }
+      .icon {
+        display: inline-block;
+        width: 33px;
+        height: 42px;
+       /* margin-left: 50%;*/
+      }
+      /*.icon,.txt{
+        float: left;
+      }*/
+      .txt{
+        font-size: 18px;
+        margin: 10px 0 0 0;
+      }
+      &.class {
+        position: relative;
+        &:after {
+          content: "";
+          position: absolute;
+          right: 0;
+          width: 8px;
+          height: 52px;
+          top: 50%;
+          margin-top: -25px;
+          background: #f1f1f4;
+        }
+        &.active {
+          .icon {
+            background: url(../../assets/images/index/courseActive.png) 0 0 no-repeat;
+            background-size: contain;
+          }
+          .txt{
+            color: #416eae;
+          }
+        }
+        .icon {
+          background: url(../../assets/images/index/course.png) 0 0 no-repeat;
+          background-size: contain;
+        }
+      }
+      &.me {
+        &.active {
+          .icon {
+            background: url(../../assets/images/index/meActive.png) 0 0 no-repeat;
+            background-size: contain;
+          }
+          .txt{
+            color: #416eae;
+          }
+        }
+        .icon {
+          background: url(../../assets/images/index/me.png) 0 0 no-repeat;
+          background-size: contain;
+        }
+      }
+    }
+  }
+}

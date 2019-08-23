@@ -1,0 +1,125 @@
+@import './mixin.pcss';
+
+body,
+html {
+  /*overflow-x: hidden;*/
+  background-color: #fff;
+  height: 100%;
+    min-height: 100%;
+}
+
+
+%img-style {
+    line-height: 0;
+    font-size: 0;
+}
+.img-style{
+    @extend %img-style
+}
+%clearfix {
+    zoom: 1;
+    &:after {
+        content: "";
+        display: block;
+        visibility: hidden;
+        height: 0;
+        clear: both
+    }
+}
+.clearfix{
+    @extend %clearfix
+}
+%flex-parent {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -o-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+.flex-parent{
+    @extend %flex-parent
+}
+%flex-child {
+    -moz-box-flex: 1;
+    -webkit-box-flex: 1;
+    -o-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+.flex-child{
+    @extend %flex-child
+}
+%normal-footer {
+    font-size: 0;
+    text-align: center;
+    button,
+    .btn {
+        position: relative;
+        margin: 16px 0;
+        border-radius: 30px;
+        height: 66px;
+        color: #ffffff;
+        font-size: 26px;
+        border: 0;
+        background-color: #3f6cad;
+        width: 90%;
+        transition: background-color .3s;
+        &[disabled] {
+            background-color: #ccc;
+        }
+        &:after {
+            content: '';
+            display: inline-block;
+            width: 0;
+            height: 0;
+            margin-left: 20px;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            border-left: 11px solid #fff;
+        }
+    }
+}
+
+%normal-btn {
+    position: relative;
+    height: 66px;
+    color: #ffffff;
+    font-size: 26px;
+    border: 0;
+    background-color: #3f6cad;
+    transition: background-color .3s;
+    &[disabled] {
+        background-color: #ccc;
+    }
+    &:after {
+        content: '';
+        display: inline-block;
+        width: 0;
+        height: 0;
+        margin-left: 20px;
+        border-top: 8px solid transparent;
+        border-bottom: 8px solid transparent;
+        border-left: 11px solid #fff;
+    }
+}
+
+.normal-btn{
+    @extend %normal-btn;
+}
+%normal-header {
+    height: 74px;
+    line-height: 74px;
+    font-size: 44px;
+    color: #494949;
+    .normal-header__title {
+        &:before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 44px;
+            background-color: #406cad;
+            margin-right: 40px;
+            vertical-align: text-top;
+        }
+    }
+}

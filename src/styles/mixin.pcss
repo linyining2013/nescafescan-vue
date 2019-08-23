@@ -1,0 +1,97 @@
+/* 
+关于设置长宽比后，子元素需要 设置为 position: absolute;top:0;bottom:0;right:0;left:0;
+已覆盖等宽等高。
+设置 长宽比
+
+example:
+    .a{
+        @mixin aspectRatio 16,9
+        .a-inner{
+            position: absolute;
+            top:0;
+            bottom:0;
+            right:0;
+            left:0;
+        }
+    }
+ */
+
+@define-mixin aspectRatio $width,
+$height {
+  $ratio: '$(width):$(height)';
+  position: relative;
+
+  &::before {
+    content: '';
+    display: block;
+  }
+
+  & {
+    aspect-ratio: $ratio;
+  }
+}
+
+
+/**
+1px 边框，t\b\r\l\tb\rl 分别代表 top\bottom\right\left\top&bottom\right&left
+
+example:
+  .text{
+     @mixin 1pxBorder #000, rl;
+  }
+**/
+@svg TBBorder {
+  height: 2px;
+
+  @rect  {
+    fill: var(--color);
+    width: 100%;
+    height: 50%;
+  }
+}
+
+@svg 1px-border-rl {
+  width: 2px;
+
+  @rect  {
+    fill: var(--color);
+    width: 50%;
+    height: 100%;
+  }
+}
+
+@define-mixin 1pxBorder $color:black,$position:topBottom {
+  border-style: solid;
+
+  @if $position == tb {
+    border-top-width: 1px;
+    border-bottom-width: 1px; 
+    border-image: svg(TBBorder param(--color $(color))) 2 2 stretch;
+  }
+
+  @if $position == rl {
+    border-right-width: 1px;
+    border-left-width: 1px;
+    border-image: svg(1px-border-rl param(--color $(color))) 2 2 stretch;
+  }
+
+  @if $position == b {
+    border-bottom-width: 1px;
+    border-image: svg(1px-border-tb param(--color $(color))) 2 2 stretch;
+  }
+
+  @if $position == t {
+    border-top-width: 1px;
+    border-image: svg(1px-border-tb param(--color $(color))) 2 2 stretch;
+  }
+
+  @if $position == l {
+    border-left-width: 1px;
+    border-image: svg(1px-border-rl param(--color $(color))) 2 2 stretch;
+  }
+
+  @if $position == r {
+    border-right-width: 1px;
+    border-image: svg(1px-border-rl param(--color $(color))) 2 2 stretch;
+  }
+}

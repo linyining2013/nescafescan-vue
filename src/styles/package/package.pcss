@@ -1,0 +1,304 @@
+
+#package-detail-wrap{
+	.cover{
+		font-size: 0;
+		line-height: 0;
+		img{
+			display: block;
+			width: 100%;
+		}
+	}
+	.info-box{
+		background: #fff;
+		padding: 40px 20px 20px;
+		line-height: 1.4;
+		.title{
+			margin: 0 0 25px;
+			font-size: 36px;
+			color: #333;
+			font-weight: 700;
+		}
+		.intro{
+			margin: 0 0 40px;
+			position: relative;
+			font-size: 26px;
+			color: #666;
+			line-height: 1.6;
+			img{
+				width: 100%;
+				margin: 10px 0;
+			}
+			
+			.intro-btn-box{
+				display: none;
+				text-align: center;
+				.intro-slide-btn{
+					position: relative;
+					font-size: 22px;
+					border: 0;
+					background: #fff;
+					color: #999;
+					&:after,
+					&:before {
+						content: "";
+						display: block;
+						position: absolute;
+						top: 10px;
+						height: 15px;
+						width: 4px;/*px*/
+						background: #d5d6da;
+						font-size: 0;
+					}
+					&:after {
+						right: -3px;
+						transform: rotate(45deg);
+						-ms-transform: rotate(45deg);
+						/* IE 9 */
+						-moz-transform: rotate(45deg);
+						/* Firefox */
+						-webkit-transform: rotate(45deg);
+						/* Safari 和 Chrome */
+						-o-transform: rotate(45deg);
+						/* Opera */
+					}
+					&:before {
+						right: -10px;
+						transform: rotate(-45deg);
+						-ms-transform: rotate(-45deg);
+						/* IE 9 */
+						-moz-transform: rotate(-45deg);
+						/* Firefox */
+						-webkit-transform: rotate(-45deg);
+						/* Safari 和 Chrome */
+						-o-transform: rotate(-45deg);
+						/* Opera */
+					}
+				}
+			}	
+			&.slide-box{
+				&.slideUp{
+					.intro-box{
+						position: relative;
+						height: 250px;
+						overflow: hidden;
+					}
+					.intro-btn-box{
+						.intro-slide-btn{
+							&:after{
+								right: -10px;
+							}
+							&:before{
+								right: -3px;
+							}
+						}
+					}
+				}
+				.intro-btn-box{
+					display: block;
+				}
+				.intro-mask{
+					position: absolute;
+					bottom: 20px;
+					height: 100px;
+					width: 100%;
+					margin: 0;
+					padding: 0;
+					display: inline-block;
+					background: url(../../assets/images/packageIntroBg.png) 0 0 no-repeat;
+					background-size: cover;
+				}
+				
+			}
+		}
+		.price{
+			.tip{
+				color: #f06b6b;
+				font-size: 26px;
+			}
+			.cur-price{
+				margin: 0 25px 0 0;
+				font-size: 40px;
+				color: #f06b6b;
+			}
+			.ori-price{
+				font-size: 24px;
+				color: #999;
+				text-decoration: line-through;
+			}
+		}
+	}
+
+	.package-label{
+		margin: 30px 0;
+			@extend %clearfix;
+			.label-box{
+				float: left;
+			}
+			.addition{
+				width: 40%;
+				float: right;
+				text-align: right;
+				font-size: 26px;
+				color: #999;
+				.num{
+					color: #333;
+				}
+			}
+	}
+
+	.package-footer{
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		padding: 20px 0;
+		text-align: center;
+		background: #fff;
+		border-top: 3px solid #f1f1f3;
+		z-index: 10;
+		.btn{
+			border: 0;
+			margin-top: 10px;
+			&.buy-btn{
+				width: 90%;
+				height: 68px;
+				line-height: 68px;
+				font-size: 34px;
+				background: #426eaf;
+				color: #fff;
+				border-radius: 34px;
+			}
+		}
+	}
+}
+
+#package-nav{
+	height: 90px;
+  /*margin-top: 10px;*/
+  border-top: 10px solid #f7f7f7;
+  background: #fff;
+  line-height: 2.8;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  border-bottom: 3px solid #efefef;
+  .btn-wrap {
+    width: 80%;
+    margin: 0 auto;
+    @extend %flex-parent;
+    .item-btn {
+      position: relative;
+      color: #666;
+      font-size: 32px;
+      @extend %flex-child;
+      text-align: center;
+	  .symbol{
+		  font-size: 24px;
+	  }
+      &.active {
+        font-weight: bold;
+		color: #333;
+        &:after {
+          content: "";
+          display: block;
+          position: absolute;
+          bottom: -2px;
+          height: 6px;
+          width: 20%;
+          left: 50%;
+          margin-left: -10%;
+          background-color: #426eaf;
+          border-radius: 6px;
+        }
+      }
+    }
+  }
+}
+
+
+#package-course-data-wrap{
+	.data-wrap{
+		background: #fff;
+		padding-bottom: 120px;
+	}
+	.course-item{
+		position: relative;
+		padding: 35px 35px 0;
+		.icon-box{
+			position: absolute;
+			top: 35px;
+			left: 35px;
+			.icon{
+				width: 90px;
+				height: 90px;
+				border-radius: 90px;
+			}
+		}
+		.intro-box{
+			margin-left: 120px;
+			border-bottom: 3px solid #f1f1f4;
+			.txt-box{
+				.title-box{
+					@extend %clearfix;
+					.course-label-box{
+						float: left;
+						line-height: 0;
+						font-size: 0;
+						.label{
+							display: inline-block;
+							margin: 0 10px 0 0;
+							min-width: 70px;
+							font-size: 24px;
+							border-radius: 8px;
+							border: solid 3px #406cad;
+							color: #406cad;
+							text-align: center;
+							background-color: #fff;
+						}
+					}
+					.title{
+						font-weight: bold;
+						line-height: 50px;
+						font-size: 34px;
+						color: #333;
+					}
+				}
+				.detail{
+					font-size: 24px;
+					color: #999;
+					margin: 20px 0 0;
+					line-height: 30px;
+					overflow: hidden;
+					white-space: nowrap;
+					text-overflow: ellipsis;
+				}
+			}
+			.intro-footer{
+				@extend %clearfix;
+				font-size: 24px;
+				margin: 40px 0;
+				.price-box{
+					float: left;
+					.tip{
+						color: #999;
+					}
+					.price{
+						color: #333;
+					}
+				}
+				.addition-box{
+					float: right;
+					color: #999;
+					.num{
+						color: #333;
+					}
+				}
+			}
+		}
+
+		&:last-child{
+      .intro-box{
+        border: 0;
+      }
+    };
+	}
+}
+

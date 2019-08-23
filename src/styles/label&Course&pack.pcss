@@ -1,0 +1,188 @@
+/* 公用的标签样式 */
+
+.label-box {
+	line-height: 0;
+	width: 60%;
+	@extend %clearfix;
+	.label {
+		display: none;
+		float: left;
+		color: #f7f7f7;
+		font-size: 22px;
+		height: 36px;
+		min-width: 66px;
+		padding: 0 6px;
+		border-radius: 8px;
+		line-height: 40px;
+		text-align: center;
+		background-color: #f4ce71;
+		margin-right: 6px;
+		margin-bottom: 6px;
+		&:nth-child(1),
+		&:nth-child(2),
+		&:nth-child(3),
+		&:nth-child(4),
+		&:nth-child(5) {
+			display: block;
+		}
+	}
+}
+
+/* 共用课程卡片详情 */
+
+
+/* 头像身份标示 */
+
+.avatar-block {
+	position: relative;
+	img {
+		position: relative;
+		z-index: 2;
+	}
+	.label {
+		position: absolute;
+		&.pendant {
+			left: -6px;
+			top: -10px;
+			width: 30px;
+			height: 30px;
+			background: url(./assets/images/me/pendant.png) 0 0 no-repeat;
+			background-size: 30px;
+			z-index: 1;
+		}
+		&.identification {
+			right: -4px;
+			bottom: -10px;
+			width: 30px;
+			height: 30px;
+			z-index: 3;
+			&.id-0 {
+				background: url(./assets/images/me/id-0.png) 0 0 no-repeat;
+				background-size: 30px;
+			}
+			&.id-1 {
+				background: url(./assets/images/me/id-1.png) 0 0 no-repeat;
+				background-size: 30px;
+			}
+			&.id-2 {
+				background: url(./assets/images/me/id-2.png) 0 0 no-repeat;
+				background-size: 30px;
+			}
+			&.id-3 {
+				background: url(./assets/images/me/id-3.png) 0 0 no-repeat;
+				background-size: 30px;
+			}
+		}
+	}
+}
+
+.class-box {
+	color: #494949;
+	line-height: 36px;
+	font-size: 28px;
+	box-shadow: 0px 8px 49px 0px rgba(146, 146, 146, 0.3);
+	border-radius: 20px;
+	background-color: #fff;
+	margin-bottom: 40px;
+	.class-header {
+		position: relative;
+		.s-img {
+			display: block;
+			line-height: 0;
+			font-size: 0;
+			border-top-left-radius: 20px;
+			border-top-right-radius: 20px;
+			width: 100%;
+		}
+		.class-header__type {
+			position: absolute;
+			right: 20px;
+			top: 20px;
+			height: 44px;
+			padding: 0 10px;
+			line-height: 44px;
+			background-color: rgba(73, 73, 73, 0.7);
+			border-radius: 10px;
+			font-size: 24px;
+			color: #fff;
+			text-align: center;
+		}
+		.class-header-progress-box {
+			position: relative;
+			margin-right: 92px;
+			.class-header-progress-box__line {
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				height: 4px;
+			}
+			.class-header-progress-box__bg {
+				background-color: #979797;
+				right: -92px;
+			}
+			.class-header-progress-box__progress {
+				background-color: #406cad;
+			}
+			.class-header-progress-box__num {
+				position: absolute;
+				bottom: -15px;
+				background-color: #406cad;
+				color: #fff;
+				font-size: 22px;
+				min-width: 92px;
+				/* padding: 0 10px; */
+				height: 30px;
+				line-height: 30px;
+				border-radius: 20px;
+				text-align: center;
+			}
+		}
+	}
+	.class-container {
+		padding: 35px;
+		.class-container__info {
+			font-weight: bold;
+			margin-bottom: 20px;
+		}
+		.class-container-control {
+			font-size: 24px;
+			line-height: 60px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			.symbol {
+				color: #979797;
+			}
+			.score {
+				color: #416eae;
+				margin-left: 20px;
+				&:after {
+					content: '';
+					display: inline-block;
+					width: 0;
+					height: 0;
+					margin-left: 20px;
+					border-top: 8px solid transparent;
+					border-bottom: 8px solid transparent;
+					border-left: 11px solid #3c67a7;
+				}
+			}
+			.class-container-control__name {
+				color: #416eae;
+			}
+			.class-container-control__intro {
+				color: #979797;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+			.class-container-control__data {
+				font-size: 20px;
+				color: #979797;
+				.symbol {
+					color: #416eae;
+				}
+			}
+		}
+	}
+}

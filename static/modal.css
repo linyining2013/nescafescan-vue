@@ -1,0 +1,131 @@
+@-webkit-keyframes openAnimate {
+    0% {
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes openAnimate {
+    0% {
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.open{
+    display: block !important;
+    -webkit-animation: openAnimate .8s;
+            animation: openAnimate .8s;
+}
+.close{
+    display: none;
+}
+.modal-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #373737;
+    background-color: rgba(0,0,0,.35);
+    margin: auto;
+    filter: alpha(opacity=50);
+    text-align: center;
+    font-size: 0;
+    white-space: nowrap;
+    overflow: auto;
+    display: none;
+}
+
+.modal-container:after {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.modal {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: left;
+    font-size: 14px;
+    background-color: transparent;
+    border: 0;
+    border-radius: 4px;
+    background-clip: padding-box;
+    -webkit-box-shadow: 0 4px 12px rgba(0,0,0,.15);
+            box-shadow: 0 4px 12px rgba(0,0,0,.15);
+}
+
+.modal-header{
+    padding: 16px 24px;
+    border-radius: 4px 4px 0 0;
+    background: transparent;
+    color: rgba(0,0,0,.65);
+}
+.modal-close{
+    cursor: pointer;
+    color: #fff;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    display: inline-block;
+    border-radius: 50%;
+    background: rgba(0,0,0,.35);
+    border: 1px solid;
+    text-align: center;
+}
+.modal-content{
+    padding: 24px;
+    font-size: 14px;
+    line-height: 1.5;
+    word-wrap: break-word;
+    min-height: 200px;
+    text-align: center;
+}
+
+.modal-footer {
+    border-top: 1px solid #e8e8e8;
+    padding: 10px 16px;
+    border-radius: 0 0 4px 4px;
+    text-align: center;
+}
+
+.modal-btn{
+    line-height: 32px;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    -ms-touch-action: manipulation;
+        touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 0 15px;
+    font-size: 14px;
+    border-radius: 4px;
+    height: 32px;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    -webkit-transition: all .3s cubic-bezier(.645,.045,.355,1);
+    -o-transition: all .3s cubic-bezier(.645,.045,.355,1);
+    transition: all .3s cubic-bezier(.645,.045,.355,1);
+    position: relative;
+    color: rgba(0,0,0,.65);
+    background-color: #fff;
+    border-color: #d9d9d9;
+    cursor: pointer;
+}
+
+.modal-btn-primary{
+    color: #fff;
+    background-color: #1890ff;
+    border-color: #1890ff;
+}

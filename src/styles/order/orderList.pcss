@@ -1,0 +1,283 @@
+#main-wrap {
+    position: relative;
+}
+
+#pay-wrap {
+    padding-top: 91px;
+}
+
+#unpay-wrap {
+    padding-top: 91px;
+    &.upPay {
+        padding-top: 171px;
+    }
+    .unpay-header {
+        position: fixed;
+        top: 91px;
+        left: 0;
+        right: 0;
+        padding: 25px 35px;
+        font-size: 28px;
+        color: #426eaf;
+        background-color: #e8eafa;
+        transform: translateX(0, 0, 0);
+        z-index: 10;
+        .icon {
+            display: inline-block;
+            width: 34px;
+            height: 34px;
+            margin-right: 10px;
+            background: url(../../assets/images/warningS.png) 50% 50% no-repeat;
+            background-size: 30px 30px;
+            vertical-align: text-bottom;
+        }
+        .close-btn {
+            float: right;
+            position: relative;
+            width: 31px;
+            height: 31px;
+            z-index: 10;
+            border: 0;
+            background: transparent;
+            &:after,
+            &:before {
+                position: absolute;
+                content: "";
+                top: 0;
+                height: 30px;
+                width: 4px;
+                background: #426eaf;
+            }
+            &:after {
+                transform: rotate(45deg);
+            }
+            &:before {
+                transform: rotate(-45deg);
+            }
+        }
+    }
+}
+
+#order-list-wrap {
+    background-color: #fcfcfc;
+    /* 课程 课程包切换 */
+    #order-type-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 90px;
+        background: #fff;
+        line-height: 2.8;
+        z-index: 10;
+        .btn-wrap {
+            width: 80%;
+            margin: 0 auto;
+            @extend %flex-parent;
+            .item-btn {
+                position: relative;
+                color: #666;
+                font-size: 32px;
+                @extend %flex-child;
+                text-align: center;
+                &.active {
+                    color: #333;
+                    font-weight: bold;
+                    &:after {
+                        content: "";
+                        display: block;
+                        position: absolute;
+                        bottom: -2px;
+                        height: 6px;
+                        width: 20%;
+                        left: 50%;
+                        margin-left: -10%;
+                        background-color: #426eaf;
+                        border-radius: 6px;
+                    }
+                }
+            }
+        }
+    }
+    #order-wrap {
+        .empty-wrap {
+            margin-top: 20%;
+            text-align: center;
+            .bg {
+                margin: 0 auto;
+                width: 324px;
+                height: 236px;
+                background: url(../../assets/images/noOrder.png) no-repeat 0 0;
+                background-size: contain;
+            }
+            .txt {
+                margin-top: 40px;
+                color: #333;
+                font-size: 32px;
+            }
+        }
+        .orders-list {
+            .orders-box {
+                margin: 35px;
+                border-radius: 20px;
+                box-shadow: 0px 15px 49px 0px rgba(146, 146, 146, 0.3);
+                /* background: #fff;
+                margin-bottom: 25px;
+                padding: 0 35px; */
+                .order-header {
+                    .s-img {
+                        display: block;
+                        line-height: 0;
+                        font-size: 0;
+                        border-top-left-radius: 20px;
+                        border-top-right-radius: 20px;
+                        width: 100%;
+                    }
+                }
+                .order-container {
+                    border-bottom-left-radius: 20px;
+                    border-bottom-right-radius: 20px;
+                    font-size: 28px;
+                    background-color: #fff;
+                    padding: 35px;
+                    .container-info {}
+                    .container-info__num {
+                        font-size: 24px;
+                        line-height: 74px;
+                        color: #979797;
+                    }
+                    .container-info__name {
+                        line-height: 36px;
+                        color: #494949;
+                    }
+                    .container-control {
+                        margin: 35px 0 0;
+                        padding: 35px 0 0;
+                        border-top: 2px solid #e9e9e9;
+                        @extend %flex-parent;
+                        .container-control-prize {
+                            @extend %flex-child;
+                            line-height: 36px;
+                            &.nocoupon {
+                                line-height: 60px;
+                            }
+                            .container-control-prize__symbol {
+                                color: #dd6062;
+                            }
+                            .container-control-prize__sell {
+                                color: #494949;
+                            }
+                            .container-control-prize__cut {
+                                font-size: 22px;
+                                color: #979797;
+                            }
+                        }
+                        .container-control-btn-box {
+                            .btn {
+                                height: 60px;
+                                font-size: 26px;
+                                border-radius: 29px;
+                                min-width: 160px;
+                                margin: 0;
+                                bottom: 0;
+                                border: none;
+                            }
+                            .success-btn {
+                                background: #426eaf;
+                                color: #fff;
+                                border: 3px solid #426eaf;
+                                &:after {
+                                    position: relative;
+                                    top: -2px;
+                                    content: '';
+                                    display: inline-block;
+                                    width: 0;
+                                    height: 0;
+                                    margin-left: 20px;
+                                    border-top: 8px solid transparent;
+                                    border-bottom: 8px solid transparent;
+                                    border-left: 11px solid #fff;
+                                }
+                            }
+                            .normal-btn {
+                                background: #fff;
+                                color: #426eaf;
+                                border: 3px solid #426eaf;
+                                margin-left: 10px;
+                            }
+                            .invalid-btn {
+                                background: #fff;
+                                color: #c7c8cb;
+                                border: 3px solid #c7c8cb;
+                                margin-left: 10px;
+                            }
+                        }
+                    }
+                }
+                .order-footer {
+                    position: relative;
+                    padding: 25px 0;
+                    border-top: 3px solid #f2f2f2;
+                    @util clearfix;
+                    .price-box {
+                        float: left;
+                        line-height: 1.2;
+                        &.nocoupon {
+                            height: 60px;
+                            line-height: 60px;
+                        }
+                        .total-price {
+                            font-size: 36px;
+                            color: #666;
+                            .name {
+                                font-size: 26px;
+                            }
+                        }
+                        .cut-price {
+                            font-size: 26px;
+                            color: #999;
+                        }
+                    }
+                    .btn-box {
+                        /*position: absolute;
+                        top: 50%;
+                        right: 0;
+                        margin-top: -40px;*/
+                        float: right;
+                        line-height: 0;
+                        font-size: 0;
+                        &.hascoupon {
+                            padding-top: 8px;
+                        }
+                        .btn {
+                            height: 60px;
+                            font-size: 26px;
+                            border-radius: 29px;
+                            min-width: 160px;
+                            margin: 0;
+                            bottom: 0;
+                            border: none;
+                        }
+                        .success-btn {
+                            background: #426eaf;
+                            color: #fff;
+                            border: 3px solid #426eaf;
+                        }
+                        .normal-btn {
+                            background: #fff;
+                            color: #426eaf;
+                            border: 3px solid #426eaf;
+                            margin-left: 10px;
+                        }
+                        .invalid-btn {
+                            background: #fff;
+                            color: #c7c8cb;
+                            border: 3px solid #c7c8cb;
+                            margin-left: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

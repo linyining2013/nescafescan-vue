@@ -1,0 +1,151 @@
+.main-header {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  .banner-wrap {
+    .img-box {
+      .link-btn {
+        display: block;
+      }
+    }
+  }
+  .point-wrap {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 10px;
+    color: #fff;
+    text-align: center;
+    .point {
+      display: inline-block;
+      height: 12px;
+      width: 12px;
+      background: #fff;
+      border-radius: 12px;
+      margin-right: 10px;
+      -o-transition: background 0.8s, width 0.8s;
+      -ms-transition: background 0.8s, width 0.8s;
+      -moz-transition: background 0.8s, width 0.8s;
+      -webkit-transition: background 0.8s, width 0.8s;
+      transition: background 0.8s, width 0.8s;
+      &.active {
+        width: 24px;
+        background: #4ed49f;
+      }
+    }
+  }
+}
+
+#category-data-wrap {
+  @extend %clearfix;
+  width: 100%;
+  background: #fff;
+  padding: 20px 0;
+  box-sizing: border-box;
+  .category-item {
+    float: left;
+    text-align: center;
+    width: 25%;
+    .padding-box{
+      position: relative;
+      padding-top: 100%;
+      .pos-box{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate3d(-50%, -50%, 0);
+      }
+    }
+    .txt {
+      line-height: 1.4;
+      color: #666;
+      font-size: 26px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    .icon {
+      text-align: center;
+      img {
+        width: 90px;
+        height: 90px;
+        border-radius: 90px;
+      }
+    }
+  }
+}
+/* 课程 课程包切换 */
+#course-type-nav {
+  height: 90px;
+  margin-top: 10px;
+  background: #fff;
+  line-height: 2.8;
+  border-bottom: 1px solid #efefef;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  .btn-wrap {
+    width: 80%;
+    margin: 0 auto;
+    @extend %flex-parent;
+    .item-btn {
+      position: relative;
+      color: rgb(102, 102, 102);
+      font-size: 32px;
+      @extend %flex-child;
+      text-align: center;
+      &.active {
+        font-weight: bold;
+        &:after {
+          content: "";
+          display: block;
+          position: absolute;
+          bottom: -2px;
+          height: 6px;
+          width: 20%;
+          left: 50%;
+          margin-left: -10%;
+          background-color: #4ed49f;
+          border-radius: 6px;
+        }
+      }
+    }
+  }
+}
+
+.footer-tip{
+  font-size: 26px;
+  color: #999;
+  padding: 40px 0;
+  margin-bottom: 120px;
+  text-align: center;
+  background: #f7f7f7;
+}
+
+
+/* 首页tab 课程样式#package-data-wrap{
+  .package-box{
+    &:first-child{
+      padding-top: 40px;
+    }
+    padding: 0 35px 40px;
+    background: #fff;
+  }
+} */
+#package-data-wrap{
+  padding-bottom: 40px;
+}
+#package-data-wrap , #course-data-wrap{
+  -webkit-overflow-scrolling:touch;
+  background: #fff;
+  &.hasMore{
+    padding-bottom: 120px;
+  }
+}
+#course-data-wrap{
+  .course-box{
+    padding-bottom: 0;
+    .info{
+      padding-bottom: 30px;
+      border-bottom: 4px solid #f7f7f7;
+    }
+  }
+}

@@ -1,0 +1,99 @@
+.course-section {
+  background: #fff;
+  .section-item{
+		position: relative;
+		padding: 0 35px 35px;
+		.icon-box{
+			position: absolute;
+			top: 0;
+			left: 35px;
+      .icon-mark{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 90px;
+				height: 90px;
+				border-radius: 90px;
+        &.mark-type-0{
+          background: rgba(0, 0, 0, .5) url(../../assets/images/section/sArticle.png) 50% 50% no-repeat;
+          background-size: 32px 40px;
+        }
+        &.mark-type-2{
+          background: rgba(0, 0, 0, .5) url(../../assets/images/section/sRadio.png) 50% 50% no-repeat;
+          background-size: 35px 32px;
+        }
+        &.mark-type-3{
+          background: rgba(0, 0, 0, .5) url(../../assets/images/section/sVideo.png) 50% 50% no-repeat;
+          background-size: 36px 32px;
+        }
+        
+      }
+			.icon{
+				width: 90px;
+				height: 90px;
+				border-radius: 90px;
+			}
+		}
+		.intro-box{
+			margin-left: 120px;
+      padding-bottom: 35px;
+			border-bottom: 4px solid #f1f1f4;
+			.txt-box{
+				.title{
+						font-size: 32px;
+            font-weight: 700;
+						color: #333;
+            /* height: 40px; */
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            .label{
+							display: inline-block;
+							margin: 0 4px;
+							font-size: 24px;
+							border-radius: 8px;
+							border: solid 3px #406cad;
+							color: #406cad;
+							text-align: center;
+              background-color: #fff;
+						}
+					}
+				.detail{
+					font-size: 24px;
+					color: #999;
+					margin: 20px 0 0;
+          .audition{
+            float: right;
+            font-size: 24px;
+            color: #406cad;
+            &.readable{
+              color: #999;            
+            }
+          }
+				}
+			}
+		}
+
+    &:last-child{
+      .intro-box{
+        border: 0;
+      }
+    }
+	}
+
+  
+}
+
+.course-section-buy {
+  .section-item {
+    &:after {
+      border-top: 3px solid #b2b2b2;
+      border-right: 3px solid #b2b2b2;
+      display: block;
+    }
+
+    .hastry {
+      display: none;
+    }
+  }
+}
