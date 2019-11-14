@@ -16,35 +16,52 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
     state: {
         identity: '',
+        secKill:false,
+        startTime:'2019/09/12 17:00:00',
+        endTime:'2019/09/12 23:59:59',
+        info:false
         // checkBuy: utils.cookie.get("checkBuy") || 0,
-        user: {
-            WXaccount: '',
-            openid: '', //!utils.isWXBrowser ? -1 : '',//
-            unionid: '', //!utils.isWXBrowser ? -1 : '',//
-            unReadNum: 0,
-            data: {},
-            nickname: '',
-            avatarUrl: '',
-            gender: 0
-        },
-        orderTip: true,
-        courseInfo: null,
-        // orderInfo: null
     },
-    getters: { //获取对应值之前进行的一步计算
+    getters: { //获取对应值之前进行的一步计算 
         // count:function(state){
         //     return state.count +=100;
         // }
+        secKillGet:state=>{
+            var inte= setInterval(() => {
+                if (new Date(state.startTime).getTime() <= new Date().getTime() && new Date(state.endTime).getTime() >= new Date().getTime()) {
+                    
+                        return true;
+                } else {
+                    clearInterval(inte)
+                    return false;
+                }
+            }, 1000);
+        }
+
     },
     mutations: { //在vue 中，只有mutation 才能改变state.
         setUnReadNum(state, info) {
-            state.user.unReadNum = info;
-        },
-        setCourseInfo(state, info) {
-            state.courseInfo = info;
-        },
-        setOrderTip(state, i) {
-            state.orderTip = i;
+            // console.log(info);
+            // var date = new Date().getTime()
+            // var time1 = new Date(state.startTime).getTime();
+            // var time2 = new Date(state.endTime).getTime();
+          
+            // if (time1 <= date && time2 >= date){
+            //     if(info){
+            //         state.secKill = info; 
+            //     }
+            // }else{
+            //     state.secKill = false;
+            // }
+            var inte = setInterval(() => {
+                if (new Date(state.startTime).getTime() <= new Date().getTime() && new Date(state.endTime).getTime() >= new Date().getTime()) {
+
+                    state.secKill = true;
+                } else {
+                    clearInterval(inte)
+                    state.secKill = false;
+                }
+            }, 1000);
         },
         setId(state, i) {
             state.identity = i;
@@ -52,105 +69,12 @@ const store = new Vuex.Store({
         // setCheckBuy(state, i) {
         //     state.checkBuy = i;
         // },
-        setWXaccount(state, i) {
-            state.user.WXaccount = i;
-        },
-        setUnionId(state, i) {
-            state.user.unionid = i;
-        },
-        setOpenId(state, i) {
-            state.user.openid = i;
-        },
-        setUserinfo(state, info) {
-            state.user.data = info;
-        },
-        setStudentInfo(state, info) {
-            state.user.data.student = info;
-        },
-        setEduInfo(state, info) {
-            state.user.data.studentEduBOs = info;
-        },
-        setStudentNo(state, info) {
-            if (!state.user.data.student) {
-                state.user.data.student = {};
-            }
-            state.user.data.student.studentNo = info;
-        },
-        setNickname(state, info) {
-            state.user.nickname = info;
-        },
-        setAvatarUrl(state, info) {
-            state.user.avatarUrl = info;
-        },
-        setGender(state, i) {
-            state.user.gender = i;
-        }
     },
     actions: {
-        updateCourseInfo({ commit }, info) {
-            commit('setCourseInfo', info);
-        },
         updateUnReadNum({ commit }, info) {
             commit('setUnReadNum', info);
         },
-        updateStudentNo({ commit }, info) {
-            commit('setStudentNo', info);
-        },
-        updateUserinfo({ commit }, info) {
-            commit('setUserinfo', info);
-        },
-        updateStudentInfo({ commit }, info) {
-            commit('setStudentInfo', info);
-        },
-        updateStudentInfo({ commit }, info) {
-            commit('setStudentInfo', info);
-        },
-        updateEduInfo({ commit }, info) {
-            commit('setEduInfo', info);
-        },
-        updateOrderTip({ commit }, i) {
-            commit('setOrderTip', i);
-        },
-
-        updateId({ commit }, identity) {
-            commit('setId', identity);
-        },
-        // updateCheckBuy({ commit }, i) {
-        //     // if (utils.cookie.get("checkBuy")) {
-        //     //     utils.cookie.set("checkBuy", i);
-        //     // }
-        //     commit('setCheckBuy', i);
-        // },
-        updateGender({ commit }, i){
-            commit('setGender', i);
-        },
-        updateNickname({ commit }, info){
-            commit('setNickname', info);
-        },
-        updateAvatarUrl({ commit }, info){
-            commit('setAvatarUrl', info);
-        },
-        updateWXaccount({ commit }, id) {
-            commit('setWXaccount', id);
-        },
-        updateUnionId({ commit }, id) {
-            commit('setUnionId', id);
-        },
-        updateOpenId({ commit }, id) {
-            commit('setOpenId', id);
-        },
-        getOpenId({ commit }) {
-            return new Promise((resolve, reject) => {
-                let id = this.state.user.openid;
-                if (id) {
-                    resolve(id);
-                } else {
-                    id = utils.cookie.get('openid');
-                    id && commit('setOpenId', id);
-                    resolve(id);
-                }
-            });
-        },
+       
         login({ commit }) {
             return new Promise((resolve, reject) => {
                 if (utils.isSuperBrowser) {
@@ -159,27 +83,28 @@ const store = new Vuex.Store({
                         ciphertext: config.ciphertext,
                         //95f1a701018006747e4e5734311cfa3c..a6234a71e54c20476bfcf17aed569d69..87bbbe833e2e1c7f3c7af1643052f63a..2f234e371fba2bb3acd3681c99600950..398372824acd5ccfe8becf2ba66baa51
                         // debug: 1,
-                        success: function() {
-                    
+                        success: function () {
+
                             jsuper.userInfo({
-                                success: function(data) {
+                                success: function (data) {
                                     commit('setId', data.identity);
                                     resolve(data.identity);
                                 }
                             });
                         },
-                        fail: function() {
+                        fail: function () {
                             alert('登录失败，请稍后再试。');
                         }
                     });
                 } else { //非表表浏览器
-                    let identity = utils.cookie.get('identity') || '';
+                    let identity = utils.cookie.get('identity') || '566012E6330102932B67EC82A2A21992';
 
                     // if ($utils.isWXBrowser) { //微信浏览器
-                    
+
                     // } else {
                     commit('setId', identity);
                     resolve(identity); //38D98D45BF5FD7408CFF368AA4088595 4BC1923F6BF52D6B4A9F3C99CF9F4249 566012E6330102932B67EC82A2A21992
+                    // resolve(identity); //38D98D45BF5FD7408CFF368AA4088595 4BC1923F6BF52D6B4A9F3C99CF9F4249 566012E6330102932B67EC82A2A21992
 
                     // }
                     return;

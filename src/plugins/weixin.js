@@ -5,9 +5,9 @@ import utils from '@/plugins/methods';
 import wx from "weixin-js-sdk";
 // import jsuper from "exports-loader?jsuper!@/../node_modules/SuperBrowserLibs/dist/jsuperV2.js";
 
-let normalIcon = "http://qiniu.myfriday.cn/o_1cb9v8i7g10lmkk41e7f1con9lmh.png",
-    courseIcon = "http://qiniu.myfriday.cn/o_1bpdjbnn21i9lbag1lh8i0l1sfg7.png";
-
+let normalIcon = "http://qiniu.myfriday.cn/WechatIMG14.jpeg",
+    courseIcon = "http://qiniu.myfriday.cn/WechatIMG14.jpeg";
+// alert(6666);
 let shareData = {};
 // let shareWeixinSessionConfig = {};
 let weixin_event = ["onMenuShareTimeline", "onMenuShareAppMessage"];
@@ -43,36 +43,12 @@ let weixin = (function() {
         init(data, options = {}) {
             let _self = this;
 
-            if (data) {
-                if (data.institute) {
-                    shareData = { //训练营相关页面分享
-                        title: "第二大学，由14家名企共同创办，首期仅招生200名",
-                        desc: "从大学开始进入一流名企参观、工作实践，提升自己的能力",
-                        link: window.location.origin + window.location.pathname + '?#/Institute/newmediamarketing',
-                        imgUrl: normalIcon //分享的图片链接
-                    }
-                } else if (data.courseType == undefined) { //课程套餐
-                    shareData = {
-                        title: "第二大学系统化课程 | " + data.name,
-                        desc: "行业顶尖名师体系化实战讲解，带你从零基础入门到精通",
-                        link: window.location.href,
-                        imgUrl: courseIcon //分享的图片链接
-                    }
-                } else { //课程 + 学习分享 => 统一分享单课程页面
-                    shareData = { //训练营相关页面分享
-                        title: "第二大学课程 | " + data.name,
-                        desc: data.teacherName + ' | ' + (data.courseShortIntro || data.intro.replace(/<[^>]+>/g, "").substr(0, 100)),
-                        link: options.href || window.location.href,
-                        imgUrl: courseIcon //分享的图片链接
-                    }
-                }
-            } else {
+           
                 shareData = {
-                    title: "第二大学，从大学开始进入名企参观、工作实践。",
-                    desc: "这里有企业总裁、高管的实战经验教学，行业顶尖的职场技能培训。",
+                    title: "珊珂弹润好礼免费开抢",
+                    desc: "珊珂品牌日海量礼品就位，快来和朋友一起动动手指抢好礼叭！",
                     link: window.location.origin + window.location.pathname + '?#/',
                     imgUrl: normalIcon //分享的图片链接
-                }
             }
 
             // shareData = data ? data.institute ? {

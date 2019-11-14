@@ -55,9 +55,9 @@ const wordBreak = {
         isoverflow: 1
     },
 }
-const normalIcon = "http://qiniu.myfriday.cn/Fo4YbtjcXFN1MCDkpk7l_8LPDIkr",
+const normalIcon = "http://qiniu.myfriday.cn/WechatIMG14.jpeg",
     courseIcon = "http://qiniu.myfriday.cn/o_1bpdjbnn21i9lbag1lh8i0l1sfg7.png",
-    weiboNormalIcon = "http://qiniu.myfriday.cn/o_1cd2g1fls14m61b0h1nt79n61qqh.png", //"http://qiniu.myfriday.cn/o_1c0itq9p29o2vf8r201sli1puoc.png",
+    weiboNormalIcon = "http://qiniu.myfriday.cn/WechatIMG14.jpeg", //"http://qiniu.myfriday.cn/o_1c0itq9p29o2vf8r201sli1puoc.png",
     weiboCourseIcon = "http://qiniu.myfriday.cn/o_1c0itqjfd1hogh1513781lq71119h.png";
 
 let utils = {
@@ -83,7 +83,7 @@ let utils = {
         return null; //返回参数值
     },
     setShare: (data, options = {}) => {
-        let platform = ["weixinTimeline", "weixinSession", "weibo"],
+        let platform = ["weixinTimeline", "weixinSession"],
             shareData = {};
 
         if (isSuperBrowser) {
@@ -100,46 +100,14 @@ let utils = {
             jsuper.shareItems({
                 platform: platform
             });
-            if (data) {
-                if (data.institute) {
-                    shareData = { //训练营相关页面分享
-                        title: "第二大学，由14家名企共同创办，首期仅招生200名",
-                        content: "从大学开始进入一流名企参观、工作实践，提升自己的能力",
-                        titleUrl: window.location.origin + window.location.pathname + '?#/Institute/newmediamarketing',
-                        shareUrl: window.location.origin + window.location.pathname + '?#/Institute/newmediamarketing',
-                        shareImgUrl: normalIcon, //分享的图片链接
-                        icon: normalIcon //分享的图片链接
-                    }
-
-                } else if (data.courseType == undefined) { //课程套餐
-                    shareData = {
-                        title: "第二大学系统化课程 | " + data.name,
-                        content: "行业顶尖名师体系化实战讲解，带你从零基础入门到精通",
-                        titleUrl: window.location.href,
-                        shareUrl: window.location.href,
-                        shareImgUrl: courseIcon, //分享的图片链接
-                        icon: courseIcon //分享的图片链接
-                    }
-                } else { //课程 + 学习分享 => 统一分享单课程页面
-                    shareData = {
-                        title: "第二大学课程 | " + data.name,
-                        content: data.teacherName + ' | ' + (data.courseShortIntro || data.intro.replace(/<[^>]+>/g, "").substr(0, 100)),
-                        titleUrl: options.href || window.location.href,
-                        shareUrl: options.href || window.location.href,
-                        shareImgUrl: courseIcon, //分享的图片链接
-                        icon: courseIcon //分享的图片链接
-                    }
-                }
-            } else {
                 shareData = { //其余分享
-                    title: "第二大学，从大学开始进入名企参观、工作实践。",
-                    content: "这里有企业总裁、高管的实战经验教学，行业顶尖的职场技能培训。",
+                    title: "珊珂弹润好礼免费开抢",
+                    content: "珊珂品牌日海量礼品就位，快来和朋友一起动动手指抢好礼叭！",
                     titleUrl: window.location.origin + window.location.pathname + '?#/',
                     shareUrl: window.location.origin + window.location.pathname + '?#/',
                     shareImgUrl: normalIcon, //分享的图片链接
                     icon: normalIcon //分享的图片链接
                 }
-            }
 
             // var shareData = data ? data.institute ? {
             //     title: "第二大学，由14家名企联合创办，正式招生，仅限200人",
@@ -164,14 +132,14 @@ let utils = {
             //     icon: normalIcon //分享的图片链接
             // };
 
-            jsuper.shareWeiboConfig(
-                _.extend({}, shareData, {
-                    content: shareData.title + "网页链接地址" + shareData.titleUrl,
-                    // imgUrl: "http://qiniu.myfriday.cn/o_1c01beo8r1t8t1fs91hat1v1n1983m.jpg",
-                    shareImgUrl: data ? data.institute ? weiboNormalIcon : weiboCourseIcon : weiboNormalIcon,
-                    // 
-                })
-            ); //微博
+            // jsuper.shareWeiboConfig(
+            //     _.extend({}, shareData, {
+            //         content: shareData.title + "网页链接地址" + shareData.titleUrl,
+            //         // imgUrl: "http://qiniu.myfriday.cn/o_1c01beo8r1t8t1fs91hat1v1n1983m.jpg",
+            //         shareImgUrl: data ? data.institute ? weiboNormalIcon : weiboCourseIcon : weiboNormalIcon,
+            //         // 
+            //     })
+            // ); //微博
             jsuper.shareWeixinTimelineConfig(shareData); //微信朋友圈
 
             // let shareWeixinSessionConfig = data ? data.institute ? _.extend({}, shareData, { title: '跟我一起报名第二大学，暑假去企业工作实践吧！' }) : shareData : shareData;

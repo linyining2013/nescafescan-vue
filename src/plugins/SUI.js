@@ -6,7 +6,7 @@ import ShareTipPlugin from './SUI/shareTip';
 import TimeoutTipPlugin from './SUI/timeoutTip';
 // import BuyTipPlugin from './SUI/buyTip';
 
-import ModalTipPlugin from './SUI/modalTip';
+// import ModalTipPlugin from './SUI/modalTip';
 // import FinishedPlugin from './SUI/Learning/Learning.finished';
 // import VideoPlugin from './SUI/video';
 
@@ -20,7 +20,7 @@ export {
     ShareTipPlugin,
     TimeoutTipPlugin,
     // BuyTipPlugin,
-    ModalTipPlugin
+    // ModalTipPlugin
     // FinishedPlugin,
     // VideoPlugin
 }

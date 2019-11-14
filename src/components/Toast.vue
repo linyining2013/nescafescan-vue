@@ -102,7 +102,7 @@ export default {
       max-width: 80%;
       line-height: 1.4;
       border-radius: 12px;
-      &.loading-content{
+      &.loading-content {
         padding: 40px 20px 20px;
         background: #fff;
         color: #666;

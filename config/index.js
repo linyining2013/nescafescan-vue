@@ -12,7 +12,8 @@ module.exports = {
         index: path.resolve(__dirname, '../dist/index.html'), // 编译输入的 index.html 文件
         assetsRoot: path.resolve(__dirname, '../dist'), // 编译输出的静态资源路径
         assetsSubDirectory: 'static', // 编译输出的二级目录     // /jsuper2/superCourse/
-        assetsPublicPath: 'http://qiniu-web.super.cn/olcourse/v2/', //  编译发布的根目录，可配置为资源服务器域名或 CDN 域名 http://qiniu-web.super.cn/olcourse/v2/  http://test.ke.super.cn/
+        // assetsPublicPath: './', //  编译发布的根目录，可配置为资源服务器域名或 CDN 域名 http://qiniu-web.super.cn/olcourse/v2/  http://test.ke.super.cn/
+        assetsPublicPath: 'http://qiniu-web.super.cn/shanke/', //  编译发布的根目录，可配置为资源服务器域名或 CDN 域名 http://qiniu-web.super.cn/olcourse/v2/  http://test.ke.super.cn/
         productionSourceMap: true, // 是否开启 cssSourceMap
         // Gzip off by default as many popular static hosts such as
         // Surge or Netlify already gzip all static assets for you.
@@ -27,22 +28,22 @@ module.exports = {
         bundleAnalyzerReport: process.env.npm_config_report
     },
     dev: {
-        host: '192.168.20.208',
+        host: '192.168.20.223',
         env: require('./dev.env'),
         port: process.env.PORT || 9080,
         autoOpenBrowser: false,
         assetsSubDirectory: 'static',
         assetsPublicPath: '/',
         proxyTable: {
-            '/course': {  
-                target: 'http://192.168.0.8:80', 
-                changeOrigin: true,
-                pathRewrite: { 
-                '^/course': 'http://192.168.0.8:80'  //http://ke.super.cn
-                }
-            },
-            '/V2': 'http://192.168.0.8:80',
-            '/SMS': 'http://192.168.0.8:80',
+            // '/course': {
+            //     target: 'http://192.168.0.8:80',
+            //     changeOrigin: true,
+            //     pathRewrite: {
+            //         '^/course': 'http://192.168.0.8:80'  //http://ke.super.cn
+            //     }
+            // },
+            // '/V2': 'http://192.168.0.8:80',
+            // '/SMS': 'http://192.168.0.8:80',
         },
         // CSS Sourcemaps off by default because relative paths are "buggy"
         // with this option, according to the CSS-Loader README

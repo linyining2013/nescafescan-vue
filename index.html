@@ -1,54 +1,37 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <meta charset="utf-8">
-        <title>第二大学</title>
-        <meta
-            name="description"
-            content="超级课程表第二大学，是大学生的职场大学，由14家知名企业联合创办，帮助大学生从大学期间开始学习职场知识，进入职场参观学习、工作实践。">
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
-     
-        <script>
-            !function (e, t) {
-                function n() {
-                    t.body
-                        ? t.body.style.fontSize = 12 * o + "px"
-                        : t.addEventListener("DOMContentLoaded", n)
-                }
+<head>
+    <meta charset="utf-8">
+    <title>珊珂-寻找最美弹润嘭嘭肌</title>
+    <meta name="description" content="">
+    <meta name="viewport"
+        content="user-scalable=no,width=device-width,minimal-ui, initial-scale=1, maximum-scale=1, minimum-scale=1" />
 
-                function d() {
-                    var e = i.clientWidth / 10;
-                    i.style.fontSize = e + "px"
-                }
-                var i = t.documentElement,
-                    o = e.devicePixelRatio || 1;
-                if (n(), d(), e.addEventListener("resize", d), e.addEventListener("pageshow", function (e) {
-                    e.persisted && d()
-                }), o >= 2) {
-                    var a = t.createElement("body"),
-                        s = t.createElement("div");
-                    s.style.border = ".5px solid transparent",
-                    a.appendChild(s),
-                    i.appendChild(a),
-                    1 === s.offsetHeight && i
-                        .classList
-                        .add("hairlines"),
-                    i.removeChild(a)
-                }
-            }(window, document);
-        </script>
-    </head>
+    <script>
+       (function flexible(window, document) { var docEl = document.documentElement; var dpr = window.devicePixelRatio ||
+       1; function setBodyFontSize() { if (document.body) { document.body.style.fontSize = 12 * dpr + "px"; } else {
+       document.addEventListener("DOMContentLoaded", setBodyFontSize); } } setBodyFontSize(); function setRemUnit() {
+       var rem = docEl.clientWidth / 10; docEl.style.fontSize = rem + "px"; } setRemUnit();
+       window.addEventListener("resize", setRemUnit); window.addEventListener("pageshow", function (e) { if
+       (e.persisted) { setRemUnit(); } }); if (dpr >= 2) { var fakeBody = document.createElement("body"); var
+       testElement = document.createElement("div"); testElement.style.border = ".5px solid transparent";
+       fakeBody.appendChild(testElement); docEl.appendChild(fakeBody); if (testElement.offsetHeight === 1) {
+       docEl.classList.add("hairlines"); } docEl.removeChild(fakeBody); } })(window, document);
+    </script>
+</head>
 
-    <body ontouchstart="" onmouseover="">
-        <div id="app">
-            <div style="color:#aaa;text-align:center;padding-top:20%;font-size:16px;">
-                正在前往第二大学
-            </div>
+<body ontouchstart="" onmouseover="">
+    <div id="app">
+        <div style="color:#aaa;text-align:center;padding-top:20%;font-size:16px;">
+            正在加载中
         </div>
-        <!-- built files will be auto injected -->
-    </body>
+    </div>
+    <!-- built files will be auto injected -->
+</body>
+<!-- <script src="https://cdn.bootcss.com/vConsole/3.3.4/vconsole.min.js"></script>
+<script>
+    new VConsole()
+</script> -->
 
 </html>

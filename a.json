@@ -1,0 +1,32 @@
+{
+    "data": {
+        "crawlType": 0,
+        "exception": false,
+        "fullverCodeUrl": "http://112.124.53.9/Verification/7ad2c_1567147542618.jpg",
+        "hasVerCode": true,
+        "importCourseEmpty": false,
+        "login": true,
+        "maxCount": 0,
+        "parameterList": [
+            {
+                "key": "para1",
+                "question": 1,
+                "title": "学号",
+                "type": 1
+            },
+            {
+                "key": "para2",
+                "question": 0,
+                "title": "密码",
+                "type": 2
+            }
+        ],
+        "session": "[version: 0][name: PHPSESSID][value: agv5ed3eb1cjbo0c238ld4f4e7][domain: jwgl.ahnu.edu.cn][path: /][expiry: null]>@<[version: 0][name: ci_session][value: a%3A5%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%22830fc06550382d441b587d066dac4ef5%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A13%3A%22121.41.47.197%22%3Bs%3A10%3A%22user_agent%22%3Bs%3A106%3A%22Mozilla%2F4.0+%28compatible%3B+MSIE+7.0%3B+Windows+NT+6.3%3B+WOW64%3B+Trident%2F7.0%3B+.NET4.0E%3B+.NET4.0C%3B+GWX%3ADOWNLOADED%29%22%3Bs%3A13%3A%22last_activity%22%3Bi%3A1567147451%3Bs%3A9%3A%22user_data%22%3Bs%3A0%3A%22%22%3B%7Dcd886785199a9d0912a50490bc5b88a0][domain: jwgl.ahnu.edu.cn][path: /][expiry: Fri Aug 30 16:44:11 CST 2019]>@<__X:X__7ad2c_1567147542618",
+        "step": 1,
+        "usage": "已经有超过1089万人次通过教务系统成功导入课表，你也试试吧！",
+        "verCodeError": false,
+        "verCodeUrl": "7ad2c_1567147542618.jpg",
+        "session2":"[version: 0][name: ASP.NET_SessionId][value: o0mg03mltzw0jknctoqy10cp][domain: jwzx.usc.edu.cn][path: /][expiry: null]>@<__X:X__94063_1567149267827"
+    },
+    "status": 1
+}
