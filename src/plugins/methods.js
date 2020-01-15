@@ -55,7 +55,7 @@ const wordBreak = {
         isoverflow: 1
     },
 }
-const normalIcon = "http://qiniu.myfriday.cn/WechatIMG14.jpeg",
+const normalIcon = "http://qiniu.myfriday.cn/FiZ5R-TvKyOTGI4_9cBWJ-4BJOjY",
     courseIcon = "http://qiniu.myfriday.cn/o_1bpdjbnn21i9lbag1lh8i0l1sfg7.png",
     weiboNormalIcon = "http://qiniu.myfriday.cn/WechatIMG14.jpeg", //"http://qiniu.myfriday.cn/o_1c0itq9p29o2vf8r201sli1puoc.png",
     weiboCourseIcon = "http://qiniu.myfriday.cn/o_1c0itqjfd1hogh1513781lq71119h.png";
@@ -77,11 +77,24 @@ let utils = {
         }
     },
     getUrlParam: (name) => {
-        let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象  
-        let r = window.location.search.substr(1).match(reg); //匹配目标参数  
-        if (r != null) return unescape(r[2]);
-        return null; //返回参数值
+        return (
+            decodeURIComponent(
+                (new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(
+                    location.href
+                ) || [, ''])[1].replace(/\+/g, '%20')
+            ) || null
+        );
     },
+    getUrlParam2: (name, a) => {
+        return (
+            decodeURIComponent(
+                (new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(
+                    a
+                ) || [, ''])[1].replace(/\+/g, '%20')
+            ) || null
+        );
+    },
+
     setShare: (data, options = {}) => {
         let platform = ["weixinTimeline", "weixinSession"],
             shareData = {};
@@ -95,19 +108,56 @@ let utils = {
             });
 
             if (isLowVersion && data && platform.length < 4) {
-                platform.push("feed");
+                platform.push("paper");
             }
             jsuper.shareItems({
                 platform: platform
             });
+            if (data) {
+                if (data.id == 5) {
+                    shareData = { //其余分享
+                        title: "送你一个雀巢咖啡高能起飞签，祝你考试高能起飞！",
+                        content: "和我一起收集雀巢咖啡高能起飞签，瓜分现金大奖。",
+                        titleUrl: window.location.origin + window.location.pathname + '#/?' + data.url,
+                        shareUrl: window.location.origin + window.location.pathname + '#/?' + data.url,
+                        shareImgUrl: normalIcon, //分享的图片链接
+                        icon: normalIcon //分享的图片链接
+                    }
+                } else {
+                    var aa = '下笔有神'
+                    if (data.id == 2) {
+                        aa = '考试不跪'
+                    } else if (data.id == 3) {
+                        aa = '蒙的都对'
+
+                    } else if (data.id == 4) {
+                        aa = '刷题担当'
+                    }
+                    shareData = { //其余分享
+                        title: "送你一个雀巢咖啡考试签，祝你考试「" + aa + "」",
+                        content: "和我一起收集雀巢咖啡考试签，瓜分现金大奖",
+                        titleUrl: window.location.origin + window.location.pathname + '#/?' + data.url,
+                        shareUrl: window.location.origin + window.location.pathname + '#/?' + data.url,
+                        shareImgUrl: normalIcon, //分享的图片链接
+                        icon: normalIcon //分享的图片链接
+                    }
+
+                }
+                var shareData1 = { content: shareData.title + shareData.content + shareData.titleUrl }
+
+                jsuper.sharePaperConfig(shareData1); //微信朋友圈
+
+
+            } else {
                 shareData = { //其余分享
-                    title: "珊珂弹润好礼免费开抢",
-                    content: "珊珂品牌日海量礼品就位，快来和朋友一起动动手指抢好礼叭！",
-                    titleUrl: window.location.origin + window.location.pathname + '?#/',
-                    shareUrl: window.location.origin + window.location.pathname + '?#/',
+                    title: "集雀巢咖啡考试签，逢考必过，高能起飞！",
+                    content: "和我一起收集雀巢咖啡考试签，瓜分现金大奖。",
+                    titleUrl: window.location.origin + window.location.pathname + '#/',
+                    shareUrl: window.location.origin + window.location.pathname + '#/',
                     shareImgUrl: normalIcon, //分享的图片链接
                     icon: normalIcon //分享的图片链接
                 }
+            }
 
             // var shareData = data ? data.institute ? {
             //     title: "第二大学，由14家名企联合创办，正式招生，仅限200人",
@@ -145,7 +195,7 @@ let utils = {
             // let shareWeixinSessionConfig = data ? data.institute ? _.extend({}, shareData, { title: '跟我一起报名第二大学，暑假去企业工作实践吧！' }) : shareData : shareData;
 
             jsuper.shareWeixinSessionConfig(shareData); //微信好友
-            isLowVersion && data && jsuper.shareFeedConfig(_.extend({}, shareData, { content: shareData.title })); //Feed流
+            // isLowVersion && data && jsuper.shareFeedConfig(_.extend({}, shareData, { content: shareData.title })); //Feed流
         }
     },
     deepLinkTo() {

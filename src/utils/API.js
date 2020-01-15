@@ -21,9 +21,9 @@ let CancelToken = axios.CancelToken;
 // let sources = [];
 const ApiDefaultOptions = {
     method: 'post',
-    baseURL: process.env.NODE_ENV === 'development' ? APIConfig.prefix: '',
+    baseURL: process.env.NODE_ENV === 'development' ? APIConfig.prefix : '',
     timeout: 30000,
-    transformRequest: [function(data) {
+    transformRequest: [function (data) {
         return Qs.stringify(data, {
             arrayFormat: 'brackets'
         });
@@ -148,20 +148,20 @@ const LOGIN_IP = 'http://120.55.151.61:80'; //测试外网http://121.40.28.189:8
 let API = {
     // sources: sources,
     APIFactory: APIFactory,
-    getCourseDetail: APIFactory(config.currentNet+'/Course/getCourseDetail.action'),
+    getCourseDetail: APIFactory(config.currentNet + '/Course/getCourseDetail.action'),
     getMyCouponList: APIFactory('/CJ/V1/Coupon/myList.action'),
-    indexCourse: APIFactory(config.currentNet+'/Course/index.action'),
-    getCourseByCategoryId: APIFactory(config.currentNet+'/Course/getCourseByCategoryId.action'), //根据分类获课程列表
+    indexCourse: APIFactory(config.currentNet + '/Course/index.action'),
+    getCourseByCategoryId: APIFactory(config.currentNet + '/Course/getCourseByCategoryId.action'), //根据分类获课程列表
     getCommentByCourseIdPage: APIFactory('/Evaluate/getCommentByCourseIdPage.action'),
     G4CouponDetail: APIFactory('/CJ/V1/Coupon/G4Detail.action'),
     receiveCoupon: APIFactory('/CJ/V1/Coupon/receive.action'),
     getAllCombo: APIFactory('/Combo/getAllCombo.action'), //获取所有套餐
-    getAllCourse: APIFactory(config.currentNet+'/Course/getAllCourse.action'), //获取所有课程
+    getAllCourse: APIFactory(config.currentNet + '/Course/getAllCourse.action'), //获取所有课程
     getDetailCombo: APIFactory('/Combo/getDetail.action'), //获取课程包所有课程
     getComboEvaluateList: APIFactory('/Combo/Evaluate/getList.action'), //获取套餐评论列表
-    getMyCourses: APIFactory(config.currentNet+'/Course/getMyCourses.action'), //获取我的课程
-    getMyCoursesV2: APIFactory(config.currentNet+'/Course/getMyCoursesV2.action'), //获取我的课程V2
-    getMyUnfinishedCourses: APIFactory(config.currentNet+'/Course/getMyUnfinishedCourses.action'), //我的课程列表-未完成
+    getMyCourses: APIFactory(config.currentNet + '/Course/getMyCourses.action'), //获取我的课程
+    getMyCoursesV2: APIFactory(config.currentNet + '/Course/getMyCoursesV2.action'), //获取我的课程V2
+    getMyUnfinishedCourses: APIFactory(config.currentNet + '/Course/getMyUnfinishedCourses.action'), //我的课程列表-未完成
     getDetailByCourseId: APIFactory('/Sectioin/getDetailByCourseId.action'), //获取购买课程内容
     findAuditionByCourseId: APIFactory('/Sectioin/findAuditionByCourseId.action'), //获取试听课程内容
     getDiscussByCourseIdPage: APIFactory('/Evaluate/getDiscussByCourseIdPage.action'), //获取课程讨论
@@ -171,7 +171,7 @@ let API = {
     isScore: APIFactory('/Score/isScore.action'), //获取评分
     isEvaluateOfComment: APIFactory('/Evaluate/isEvaluateOfComment.action'), //获取评分
     addScore: APIFactory('/Score/save.action'), //评分课程
-    getCoursesByRecommend: APIFactory(config.currentNet+'/Course/getCoursesByRecommend.action'), //获取推荐课程
+    getCoursesByRecommend: APIFactory(config.currentNet + '/Course/getCoursesByRecommend.action'), //获取推荐课程
     finshCourse: APIFactory('/LearnProgress/finshCourse.action'), //结束课程
     registerForH5: APIFactory(LOGIN_IP + '/V2/StudentSkip/registerForH5.action', { baseURL: '' }), //站外注册
     loginForH5: APIFactory(LOGIN_IP + '/V2/StudentSkip/loginForH5.action', { baseURL: '' }), //站外登陆/SMS/getRegisterCaptchaForH5.action
@@ -194,9 +194,9 @@ let API = {
     getPayWays: APIFactory('/CJ/V1/Order/getPayWays.action'), //获取支付方式
     cancelOrder: APIFactory('/CJ/V1/Order/cancel.action'), //订单取消
     dualCreate: APIFactory('/CJ/V1/Order/dualCreate.action'), //重新支付
-    getStudentInfo: APIFactory(config.currentNet+'/Student/getInfo.action'), //学生信息
+    getStudentInfo: APIFactory(config.currentNet + '/Student/getInfo.action'), //学生信息
     addRecord: APIFactory('/Record/add.action'), //进度存储
-    bannerPush: APIFactory(config.currentNet+'/Course/bannerPush.action'), //banner推送
+    bannerPush: APIFactory(config.currentNet + '/Course/bannerPush.action'), //banner推送
     getOrderDetail: APIFactory('/CJ/V1/Order/getDetail.action'), //订单信息
     getComboDetailV2: APIFactory('/Combo/getDetailV2.action'), //套餐（包含训练营）回顾
     getCreditDetailList: APIFactory('/Credit/getCreditDetailList.action'), //套餐的学分获取
@@ -205,7 +205,7 @@ let API = {
     getProvinceCities: APIFactory('/Setting/Address/getProvinceCities.action'), //搜索城市
     getAllProvinces: APIFactory('/Setting/Address/getAllProvinces.action'), //搜索城市
     addSelfAndEdu: APIFactory('/Student/addSelfAndEdu.action'), //学籍信息填写（第一次填写）
-    getIndexPushCourses: APIFactory(config.currentNet+'/Course/getIndexPushCourses.action'), //首页热门课程列表
+    getIndexPushCourses: APIFactory(config.currentNet + '/Course/getIndexPushCourses.action'), //首页热门课程列表
     getMySchoolRollInfo: APIFactory('/Student/getMySchoolRollInfo.action'), //我的学籍资料-完整
     saveExtra: APIFactory('/Student/saveExtra.action'), //个人信息修改
     editEdu: APIFactory('/Student/editEdu.action'), //教育经历编辑-单个

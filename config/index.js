@@ -13,8 +13,8 @@ module.exports = {
         assetsRoot: path.resolve(__dirname, '../dist'), // 编译输出的静态资源路径
         assetsSubDirectory: 'static', // 编译输出的二级目录     // /jsuper2/superCourse/
         // assetsPublicPath: './', //  编译发布的根目录，可配置为资源服务器域名或 CDN 域名 http://qiniu-web.super.cn/olcourse/v2/  http://test.ke.super.cn/
-        assetsPublicPath: 'http://qiniu-web.super.cn/shanke/', //  编译发布的根目录，可配置为资源服务器域名或 CDN 域名 http://qiniu-web.super.cn/olcourse/v2/  http://test.ke.super.cn/
-        productionSourceMap: true, // 是否开启 cssSourceMap
+        assetsPublicPath: 'https://qiniu-web.super.cn/nescafescan/', //  编译发布的根目录，可配置为资源服务器域名或 CDN 域名 http://qiniu-web.super.cn/olcourse/v2/  http://test.ke.super.cn/
+        productionSourceMap: false, // 是否开启 cssSourceMap
         // Gzip off by default as many popular static hosts such as
         // Surge or Netlify already gzip all static assets for you.
         // Before setting to `true`, make sure to:
@@ -28,7 +28,7 @@ module.exports = {
         bundleAnalyzerReport: process.env.npm_config_report
     },
     dev: {
-        host: '192.168.20.223',
+        host: '192.168.20.122',
         env: require('./dev.env'),
         port: process.env.PORT || 9080,
         autoOpenBrowser: false,

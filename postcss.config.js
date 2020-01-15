@@ -10,11 +10,14 @@ module.exports = {
         },
         "postcss-write-svg": {},
         // to edit target browsers: use "browserslist" field in package.json
-        "autoprefixer": {},
+        autoprefixer: {
+            browsers: ['Android >= 4.0', 'iOS >= 7']
+        },
         "postcss-utilities": {},
         "postcss-aspect-ratio-mini": {},
         "postcss-color-function": {},
         //  px to rem 
+
         "postcss-adaptive": {
             remUnit: 75,
             autoRem: true

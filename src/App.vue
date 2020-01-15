@@ -26,10 +26,11 @@ export default {
     }
   },
   created(){
-     if(!this.$utils.isSuperBrowser){
-         this.$router.push('./')
-         return
-    }
+    //  if(!this.$utils.isSuperBrowser){
+    //      this.$router.push('./')
+    //      return
+    // }
+  
   },
   mounted() {
     if (this.$utils.isSuperBrowser) {

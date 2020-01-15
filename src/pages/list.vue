@@ -393,12 +393,6 @@ export default {
       var uptoken = this.token;
       var file = evfile.target.files[0]; //Blob 对象，上传的文件
       var key = file.name; // 上传后文件资源名以设置的 key 为主，如果 key 为 null 或者 undefined，则文件资源名会以 hash 值作为资源名。
-      //   console.log(file.size);
-      //   if (file.size > 4000000) {
-      //     this.$super.toast.text("图片最大只能上传 4MB 哦~");
-      //     return;
-      //   }
-
         let config = {
           useCdnDomain: true, //表示是否使用 cdn 加速域名，为布尔值，true 表示使用，默认为 false。
           region: qiniu.region.z0 // 根据具体提示修改上传地区,当为 null 或 undefined 时，自动分析上传域名区域
@@ -420,20 +414,7 @@ export default {
         var that = this
         observable.subscribe({
           next: result => {
-            // 主要用来展示进度
-            // console.log(result);
-                    // this.$super.loading.show('正在上传中');
-          //    var timeid =  setInterval(() => {
             this.upimg=true
-          //          if(this.complate){
-          //              clearInterval(timeid)
-          //              console.log(6);
-          //              this.$super.loading.hide();
-          //              this.isShow = true
-          //               this.complate=false
-                        
-          //          }
-          //     }, 10);
             
           },
           error: errResult => {
@@ -450,20 +431,9 @@ export default {
             this.upimg=false
           this.isShow = true
         })
-            // this.complate=true
-            // console.log(this.dataimg);
-              // this.isShow = true
-          //   this.$super.toast.text("上传成功");
           }
       });
-    //  var timeid= setInterval(() => {
-    //       if(this.complate){
-    //           console.log(66);
-    //       that.$super.loading.hide();
-    //       clearInterval(timeid)
-    //       this.isShow = true
-    //       }
-    //   }, 100);
+   
     }
   }
 };

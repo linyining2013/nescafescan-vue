@@ -36,23 +36,19 @@
       </div>
     </div> -->
     <div class="img">
-            <img src="@/assets/images/rules2.png" alt="" srcset="" width="100%">
+            <img src="http://qiniu.myfriday.cn/article/2019/11/o_1dqud7jjq1holjas5h1bpo8tsh" alt="" srcset="" width="100%">
+            <img src="http://qiniu.myfriday.cn/article/2019/11/o_1dqud9bkr1ghr18pn1od511fm16sbm" alt="" srcset="" width="100%">
     </div>
-    <div class="footer">
-      <jump-ad :parentMessage="back" class="timeJump top" @click.native="$router.go(-1)"></jump-ad>
-      <jump-ad :parentMessage="parentMessage" class="timeJump" @click.native="jumpTo"></jump-ad>
+    <div class="img">
     </div>
-     <killJump></killJump>
+     
 
   </div>
 </template>
 <script>
-import JumpAd from "@/components/JumpAd";
 
 export default {
-  components: {
-    JumpAd
-  },
+ 
   data() {
     return {
       menuIndex: 1,
@@ -62,9 +58,12 @@ export default {
       backBig: "padding:0 2.4rem;"
     };
   },
-  created() { if(!this.$utils.isSuperBrowser){
-         this.$router.push('./')
-         return
+  created() {
+          document.body.style.overflow='auto';
+
+     if(!this.$utils.isSuperBrowser){
+        //  this.$router.push('./')
+        //  return
     }},
   methods: {
       backto(){
@@ -82,8 +81,14 @@ export default {
   background: #e2f1ff;
   /* height: 100%; */
   /* padding: 83px 58px; */
-  padding-bottom: 60px;
+  /* padding-bottom: 60px; */
+  width: 100vw;
+    height:  100vh;
   position: relative;
+    background-color: #f5c622;
+  img{
+    display:block;
+  }
   margin: auto;
   .head {
     height: 41px;

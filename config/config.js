@@ -1,6 +1,6 @@
 const dev = {
-    ciphertext: '0bb160e96317959427616d29aab0de84',
-    currentNet: '',
+    ciphertext: '5206febbbff93eda6dadd7d467f6a108',
+    currentNet: 'http://192.168.0.36:9104',
 }
 // const prod36 = {
 //     ciphertext: '2f234e371fba2bb3acd3681c99600950',
@@ -16,7 +16,7 @@ const prod36 = {
 
 const prod = {
     ciphertext: '8e1586fcae9fb7a3c0488ca57a8bd611', //'95f1a701018006747e4e5734311cfa3c',
-    currentNet: '',
+    currentNet: 'https://a.super.cn/nescafescan',
 }
 
 const testprod = {

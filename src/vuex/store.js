@@ -16,21 +16,21 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
     state: {
         identity: '',
-        secKill:false,
-        startTime:'2019/09/12 17:00:00',
-        endTime:'2019/09/12 23:59:59',
-        info:false
+        secKill: false,
+        startTime: 1575648000000,
+        endTime: 1576080000000,
+        info: false
         // checkBuy: utils.cookie.get("checkBuy") || 0,
     },
     getters: { //获取对应值之前进行的一步计算 
         // count:function(state){
         //     return state.count +=100;
         // }
-        secKillGet:state=>{
-            var inte= setInterval(() => {
+        secKillGet: state => {
+            var inte = setInterval(() => {
                 if (new Date(state.startTime).getTime() <= new Date().getTime() && new Date(state.endTime).getTime() >= new Date().getTime()) {
-                    
-                        return true;
+
+                    return true;
                 } else {
                     clearInterval(inte)
                     return false;
@@ -45,7 +45,7 @@ const store = new Vuex.Store({
             // var date = new Date().getTime()
             // var time1 = new Date(state.startTime).getTime();
             // var time2 = new Date(state.endTime).getTime();
-          
+
             // if (time1 <= date && time2 >= date){
             //     if(info){
             //         state.secKill = info; 
@@ -74,7 +74,7 @@ const store = new Vuex.Store({
         updateUnReadNum({ commit }, info) {
             commit('setUnReadNum', info);
         },
-       
+
         login({ commit }) {
             return new Promise((resolve, reject) => {
                 if (utils.isSuperBrowser) {

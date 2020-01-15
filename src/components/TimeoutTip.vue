@@ -36,7 +36,7 @@ export default {
   font-size: 26px;
   color: #000;
   header{
-    background: url(../assets/images/timeout.png) 0 0 no-repeat;
+    background: url('http://qiniu.myfriday.cn/FisutHRt4VlXj1gxpzXCyeq8HDHG') 0 0 no-repeat;
     background-size: 334px 247px;
     width: 334px;
     height: 247px;

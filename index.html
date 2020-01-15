@@ -3,21 +3,50 @@
 
 <head>
     <meta charset="utf-8">
-    <title>珊珂-寻找最美弹润嘭嘭肌</title>
+    <title>短饮咖啡•集签起飞</title>
     <meta name="description" content="">
     <meta name="viewport"
-        content="user-scalable=no,width=device-width,minimal-ui, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+        content="user-scalable=no,width=device-width,minimal-ui, initial-scale=1, maximum-scale=1, minimum-scale=1,viewport-fit=cover" />
 
     <script>
-       (function flexible(window, document) { var docEl = document.documentElement; var dpr = window.devicePixelRatio ||
-       1; function setBodyFontSize() { if (document.body) { document.body.style.fontSize = 12 * dpr + "px"; } else {
-       document.addEventListener("DOMContentLoaded", setBodyFontSize); } } setBodyFontSize(); function setRemUnit() {
-       var rem = docEl.clientWidth / 10; docEl.style.fontSize = rem + "px"; } setRemUnit();
-       window.addEventListener("resize", setRemUnit); window.addEventListener("pageshow", function (e) { if
-       (e.persisted) { setRemUnit(); } }); if (dpr >= 2) { var fakeBody = document.createElement("body"); var
-       testElement = document.createElement("div"); testElement.style.border = ".5px solid transparent";
-       fakeBody.appendChild(testElement); docEl.appendChild(fakeBody); if (testElement.offsetHeight === 1) {
-       docEl.classList.add("hairlines"); } docEl.removeChild(fakeBody); } })(window, document);
+        (function flexible(window, document) {
+            var docEl = document.documentElement;
+            var dpr = window.devicePixelRatio ||
+                1;
+
+            function setBodyFontSize() {
+                if (document.body) {
+                    document.body.style.fontSize = 12 * dpr + "px";
+                } else {
+                    document.addEventListener("DOMContentLoaded", setBodyFontSize);
+                }
+            }
+            setBodyFontSize();
+
+            function setRemUnit() {
+                var rem = docEl.clientWidth / 10;
+                docEl.style.fontSize = rem + "px";
+            }
+            setRemUnit();
+            window.addEventListener("resize", setRemUnit);
+            window.addEventListener("pageshow", function (e) {
+                if (e.persisted) {
+                    setRemUnit();
+                }
+            });
+            if (dpr >= 2) {
+                var fakeBody = document.createElement("body");
+                var
+                    testElement = document.createElement("div");
+                testElement.style.border = ".5px solid transparent";
+                fakeBody.appendChild(testElement);
+                docEl.appendChild(fakeBody);
+                if (testElement.offsetHeight === 1) {
+                    docEl.classList.add("hairlines");
+                }
+                docEl.removeChild(fakeBody);
+            }
+        })(window, document);
     </script>
 </head>
 
@@ -29,8 +58,8 @@
     </div>
     <!-- built files will be auto injected -->
 </body>
-<!-- <script src="https://cdn.bootcss.com/vConsole/3.3.4/vconsole.min.js"></script>
-<script>
+<script src="https://cdn.bootcss.com/vConsole/3.3.4/vconsole.min.js"></script>
+<!-- <script>
     new VConsole()
 </script> -->
 

@@ -1,10 +1,4 @@
-import Vue from 'vue';
-import Router from 'vue-router';
 
-import Index from "@/pages/index";
-import list from "@/pages/list"; 
-import rules from "@/pages/rules"; 
-import seckill from "@/pages/seckill"; 
 
 //http://www.cnblogs.com/coolslider/p/7074609.html
 // const couponList = resolve => require(['@/pages/Coupon/couponList'], resolve);
@@ -20,48 +14,112 @@ import seckill from "@/pages/seckill";
 // const InstituteNewmediamarketing_3 = resolve => require(['@/pages/Invitation/Institute.newmediamarketing.3'], resolve)
 // const agreement = resolve => require(['@/pages/Agreement/agreement'], resolve);
 
+import Vue from 'vue'
+import Router from 'vue-router'
 
-
-Vue.use(Router);
+Vue.use(Router)
 
 export default new Router({
     routes: [
         {
-
-        path: '/',
-        component: Index,
-        children: [
-            //     {
-            //     path: 'list',
-            //     component: list,
-            //     children: [
-            //     ]
-            // },
-            // {
-            //     path: '',
-            //     name: 'Home.me',
-            //     component: me,
-            //     meta: { keepAlive: true }
-            // }
-        ]
-    },
-        {
-            path: '/list',
-            name: 'list',
-            component: list,
-            
+            path: "/index",
+            name: "x-index",
+            meta: {
+                title: "短饮咖啡•集签起飞"
+            },
+            component: resolve => require(["@/pages/index"], resolve)
         },
         {
-            path: '/rules',
-            name: 'rules',
-            component: rules,
-            
+            path: "/rule",
+            name: "x-rule",
+            meta: {
+                title: "短饮咖啡•集签起飞"
+            },
+            component: resolve => require(["@/pages/rules"], resolve)
+        },
+        // {
+        //     path: "/accept",
+        //     name: "x-accept",
+        //     meta: {
+        //         title: "短饮咖啡•集签起飞"
+        //     },
+        //     component: resolve => require(["@/pages/accept"], resolve)
+        // },
+        // {
+        //     path: "/acceptindex",
+        //     name: "x-acceptindex",
+        //     meta: {
+        //         title: "短饮咖啡•集签起飞"
+        //     },
+        //     component: resolve => require(["@/pages/acceptindex"], resolve)
+        // },
+        {
+            path: "/share",
+            name: "x-share",
+            meta: {
+                title: "短饮咖啡•集签起飞"
+            },
+            component: resolve => require(["@/pages/share"], resolve)
         },
         {
-            path: '/seckill',
-            name: 'seckill',
-            component: seckill,
-            
+            path: "/red",
+            name: "x-red",
+            meta: {
+                title: "短饮咖啡•集签起飞"
+            },
+            component: resolve => require(["@/pages/red"], resolve)
         },
-]
+        {
+            path: "/",
+            name: "x-ground",
+            meta: {
+                title: "短饮咖啡•集签起飞"
+            },
+            component: resolve => require(["@/pages/ground"], resolve)
+        },
+    ]
 });
+
+
+// Vue.use(Router);
+
+// export default new Router({
+//     routes: [
+//         {
+
+//             path: '/',
+//             name: 'ground',
+//             component: ground,
+//         },
+//         {
+//             path: '/share',
+//             name: 'share',
+//             component: share,
+
+//         },
+//         {
+//             path: '/index',
+//             name: 'index',
+//             component: Index,
+
+//         },
+//         {
+//             path: '/list',
+//             name: 'list',
+//             component: list,
+
+//         },
+//         {
+//             path: '/rules',
+//             name: 'rules',
+//             component: rules,
+
+//         },
+//         {
+//             path: '/seckill',
+//             name: 'seckill',
+//             component: seckill,
+
+//         },
+//     ]
+// });

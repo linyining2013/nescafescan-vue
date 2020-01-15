@@ -5,13 +5,13 @@ import utils from '@/plugins/methods';
 import wx from "weixin-js-sdk";
 // import jsuper from "exports-loader?jsuper!@/../node_modules/SuperBrowserLibs/dist/jsuperV2.js";
 
-let normalIcon = "http://qiniu.myfriday.cn/WechatIMG14.jpeg",
-    courseIcon = "http://qiniu.myfriday.cn/WechatIMG14.jpeg";
+let normalIcon = "http://qiniu.myfriday.cn/FiZ5R-TvKyOTGI4_9cBWJ-4BJOjY",
+    courseIcon = "http://qiniu.myfriday.cn/FiZ5R-TvKyOTGI4_9cBWJ-4BJOjY";
 // alert(6666);
 let shareData = {};
 // let shareWeixinSessionConfig = {};
 let weixin_event = ["onMenuShareTimeline", "onMenuShareAppMessage"];
-let weixin = (function() {
+let weixin = (function () {
     return /**  @lends Super.weixin */ {
         /**
          * 默认配置
@@ -23,7 +23,8 @@ let weixin = (function() {
              * 请求微信signature的API
              * @type {String}
              */
-            signatureApi: 'http://wx.super.cn/oauth2/api/wx/get_js_config.action',
+
+            signatureApi: 'https://wx.super.cn/oauth2/api/wx/get_js_config.action',
             /**
              * 是否debug
              * @type {Boolean}
@@ -38,17 +39,45 @@ let weixin = (function() {
             /**
              * 微信验证错误的回调函数
              */
-            errorCallback: function() {}
+            errorCallback: function () { }
         },
         init(data, options = {}) {
             let _self = this;
+            if (utils.getUrlParam("cardType")) {
+                if (utils.getUrlParam("cardType") == 5) {
+                    shareData = {
+                        title: "送你一个雀巢咖啡高能起飞签，祝你考试高能起飞！",
+                        desc: "和我一起收集雀巢咖啡高能起飞签，瓜分现金大奖。",
+                        // link: window.location.origin + window.location.pathname + '#/' + urlLink,
+                        link: window.location.href,
+                        imgUrl: normalIcon //分享的图片链接
+                    }
+                } else {
+                    var aa = '下笔有神'
+                    if (utils.getUrlParam("cardType") == 2) {
+                        aa = '考试不跪'
+                    } else if (utils.getUrlParam("cardType") == 3) {
+                        aa = '蒙的都对'
 
-           
+                    } else if (utils.getUrlParam("cardType") == 4) {
+                        aa = '刷题担当'
+                    }
+                    shareData = {
+                        title: "送你一个雀巢咖啡考试签，祝你考试「" + aa + "」",
+                        desc: "和我一起收集雀巢咖啡考试签，瓜分现金大奖",
+                        // link: window.location.origin + window.location.pathname + '#/' + urlLink,
+                        link: window.location.href,
+                        imgUrl: normalIcon //分享的图片链接
+                    }
+                }
+            } else {
                 shareData = {
-                    title: "珊珂弹润好礼免费开抢",
-                    desc: "珊珂品牌日海量礼品就位，快来和朋友一起动动手指抢好礼叭！",
-                    link: window.location.origin + window.location.pathname + '?#/',
+                    title: "集雀巢咖啡好运签，逢考必过，高能起飞！",
+                    desc: "和我一起收集雀巢咖啡考试签，瓜分现金大奖。",
+                    // link: window.location.origin + window.location.pathname + '#/' + urlLink,
+                    link: window.location.href,
                     imgUrl: normalIcon //分享的图片链接
+                }
             }
 
             // shareData = data ? data.institute ? {
@@ -95,7 +124,7 @@ let weixin = (function() {
                         signature: config.signature, // 必填，签名，见附录1
                         jsApiList: _self.setting.jsApiList // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
                     });
-                    wx.ready(function() {
+                    wx.ready(function () {
                         wx.onMenuShareAppMessage(shareData); //分享给朋友
                         wx.onMenuShareTimeline(shareData); //分享到朋友圈
 
@@ -125,8 +154,8 @@ let weixin = (function() {
                         //     }
                         // });
                     });
-                    wx.error = function(res) {};
-                } else {}
+                    wx.error = function (res) { };
+                } else { }
             });
         },
         onMenuShareAppMessage() {
@@ -135,10 +164,10 @@ let weixin = (function() {
                 desc: shareData.desc, // 分享描述
                 link: shareData.link, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                 imgUrl: shareData.imgUrl, // 分享图标
-                success: function() {
+                success: function () {
                     // 用户确认分享后执行的回调函数
                 },
-                cancel: function() {
+                cancel: function () {
                     // 用户取消分享后执行的回调函数
                 }
 
@@ -149,17 +178,16 @@ let weixin = (function() {
                 title: shareData.title, // 分享标题
                 link: shareData.link, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                 imgUrl: shareData.imgUrl, // 分享图标
-                success: function() {
+                success: function () {
                     // 用户确认分享后执行的回调函数
                 },
-                cancel: function() {
+                cancel: function () {
                     // 用户取消分享后执行的回调函数
                 }
             });
         },
     }
-}())
-
+})()
 
 export default weixin;
 
